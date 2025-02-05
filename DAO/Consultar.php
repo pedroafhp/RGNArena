@@ -19,7 +19,7 @@ use PHP\Modelo\DAO\Conexao;
                             "<br>Telefone: ".$dados['telefone'].
                             "<br>Endereço: ".$dados['endereco'].
                             "<br>Email: ".$dados['email'].
-                            "<br>Genero: ".dados['genero'];
+                            "<br>Genero: ".$dados['genero'];
                     }
                 }
                 return "Digite um CPF válido!";

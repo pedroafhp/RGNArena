@@ -5,7 +5,7 @@
         function conectar(){
         try{
            
-            $conn = mysqli_connect('localhost','root','','phpSenac');
+            $conn = mysqli_connect('localhost','root','','RGN');
             if($conn){
                 echo "<br>Conectado com sucesso!";
                     return $conn;

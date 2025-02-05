@@ -68,7 +68,6 @@
         <nav>
             <a href="ajuda.html" class="">Ajuda</a>
             <a href="Acessar.php" class="button-cor">Login</a>
-
         </nav>
     </header>
 

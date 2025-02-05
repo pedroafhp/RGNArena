@@ -19,7 +19,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
 <body>
-    <a href="Menu.php"> <button>Voltar</button></a>
+    <a href="Index.php"> <button>Voltar</button></a>
 
     <form method="POST">
     <div class="mb-3">
@@ -27,15 +27,8 @@
         <input type="text" class="form-control" id="tCpf" name="tCpf" placeholder="000.000.000-00">
     </div>
     <div class="mb-3">
-            <label for="lTipo" class="form-label">Selecione Funcionario:</label>
-            <select class="form-select" id="tTipo" name="tTipo" required>
-                <option value="1">1 - Cliente</option>
-            </select>
-    </div>    
-    <div class="mb-3">
         <label for="lNome" class="form-label">Nome</label>
         <input type="text" class="form-control" id="tNome" name="tNome" placeholder="Insira seu nome">
-    </div>
     </div>    
     <div class="mb-3">
         <label for="lDtaNascimento" class="form-label">Data de Nascimento</label>
@@ -64,7 +57,7 @@
 
             if(isset($_POST['tCpf']) ){
                 $cpf = $_POST['tCpf'];
-                $tnome = $_POST['tNome'];
+                $nome = $_POST['tNome'];
                 $dtaNascimento = $_POST['tDtaNascimento'];
                 $telefone = $_POST['tTelefone'];
                 $email = $_POST['tEmail'];

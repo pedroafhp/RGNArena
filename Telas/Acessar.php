@@ -108,6 +108,7 @@
         <h2>Login</h2>
         <form  method="POST">
             <input type="text" name="tCpf" placeholder="Digite seu CPF" required>
+            <a href="CadastrarCliente.php">Cadastre-se</a>
             <button type="submit" class = "cor-button">Entrar
                 <?php
                 if(isset($_POST['tCpf'])){

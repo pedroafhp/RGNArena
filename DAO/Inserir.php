@@ -5,10 +5,10 @@
 
     class Inserir{
         //INICIO FUNCIONÁRIO
-        function cadastrarFuncionario(Conexao $conexao,
+        function cadastrarCliente(Conexao $conexao,
                                         string $cpf,
                                         string $nome,
-                                        string $dtaNadcimento,
+                                        string $dtaNascimento,
                                         string $telefone,
                                         string $email,
                                         string $endereco,
@@ -16,7 +16,7 @@
          ){
             try{
                 $conn = $conexao->conectar();//Abrir banco
-                $sql = "Insert into Cliente(codigo,nome, dtaNascimento, telefone, email, endereco, genero) values('$cpf','$nome','$dtaNascimento','$telefone','$email','$endereco','$genero)";
+                $sql = "Insert into cliente(codigo,nome, dtaNascimento, telefone, email, endereco, genero) values('$cpf','$nome','$dtaNascimento','$telefone','$email','$endereco','$genero')";
                 $result = mysqli_query($conn,$sql);
                 mysqli_close($conn);
                 //Verificar o resultado
