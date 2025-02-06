@@ -16,26 +16,26 @@
     <title>Excluir Cliente</title>
 </head>
 <body>
-    <a href="Menu.php"> <button>Voltar</button></a>
     <form method="POST">
         <label>Informe o CPF: </label>
-        <input type = "text" name="tCpf"/>
-        <button type="submit">Consultar
+        <input type="text" name="tCpf"/>
+        <button type="submit">Excluir
             <?php
                 $conexao = new Conexao();
                 if(isset($_POST['tCpf'])){
                     $cpf = $_POST['tCpf'];
-                 $excluir = new Excluir();
                 }  
             ?>
           </button>
     </form>
     <?php
         if(isset($_POST['tCpf'])){
+            $excluir = new Excluir();
             echo $excluir->excluirCliente($conexao,$cpf);
         }else{
-            echo "informe um CPF válido";
+            echo "";
         }
     ?>
-</body>
+</body><br><br>
+<a href="Index.php"> <button>Voltar</button></a>
 </html>

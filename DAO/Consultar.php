@@ -13,7 +13,7 @@ use PHP\Modelo\DAO\Conexao;
                 while($dados = mysqli_fetch_Array($result))
                 {
                     if($dados['codigo'] == $cpf){
-                        return "<br>cpf: ".$dados['codigo'].
+                        return "<br>CPF: ".$dados['codigo'].
                             "<br>Nome: ".$dados['nome'].
                             "<br>Data de Nascimento: ".$dados['dtaNascimento'].
                             "<br>Telefone: ".$dados['telefone'].
@@ -28,5 +28,45 @@ use PHP\Modelo\DAO\Conexao;
                 echo $erro;
             }
     }//fim do método
-    }//fim da classe
+
+    function consultarCPF(Conexao $conexao,string $cpf)        
+       {
+            try{
+                $conn = $conexao->conectar();
+                $sql  = "select * from Cliente where codigo = '$cpf'";
+                $result = mysqli_query($conn,$sql);
+                while($dados = mysqli_fetch_Array($result))
+                {
+                    if($dados['codigo'] == $cpf){
+                        return true;
+                    }
+                }
+                return false;
+            }catch(Exception $erro)
+            {
+                echo $erro;
+            }
+    }//fim do método
+
+    function consultarSenha(Conexao $conexao,string $senha)        
+       {
+            try{
+                $conn = $conexao->conectar();
+                $sql  = "select * from Cliente where codigo = '$senha'";
+                $result = mysqli_query($conn,$sql);
+                while($dados = mysqli_fetch_Array($result))
+                {
+                    if($dados['codigo'] == $senha){
+                        return true;
+                    }
+                }
+                return false;
+            }catch(Exception $erro)
+            {
+                echo $erro;
+            }
+    }//fim do método
+
+
+}//fim da classe
 ?>

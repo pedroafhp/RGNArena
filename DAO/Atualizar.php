@@ -4,9 +4,9 @@
    use PHP\Modelo\DAO\Conexao;
 
     class Atualizar{
-        function atualizarCadastro(Conexao $conexao, string $campo, string $novoDado, string $cpf, float $tipo){
+        function atualizarCadastro(Conexao $conexao, string $campo, mixed $novoDado, string $cpf, float $tipo){
             $conn = $conexao->conectar();
-            $sql  = "update Funcionario set $campo = '$novoDado' where codigo = '$cpf' and tipo =' $tipo' ";
+            $sql  = "update Cliente set $campo = '$novoDado' where codigo = '$cpf' and tipo ='$tipo'";
             $result = mysqli_query($conn,$sql);
             mysqli_close($conn);
             if ($result){

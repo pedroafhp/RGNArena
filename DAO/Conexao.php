@@ -7,7 +7,7 @@
            
             $conn = mysqli_connect('localhost','root','','RGN');
             if($conn){
-                echo "<br>Conectado com sucesso!";
+                echo "<br>";
                     return $conn;
                 }
                 echo "<br>Algo deu errado!";    

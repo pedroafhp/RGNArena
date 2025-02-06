@@ -19,7 +19,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
 <body>
-    <a href="Index.php"> <button>Voltar</button></a>
 
     <form method="POST">
     <div class="mb-3">
@@ -43,6 +42,10 @@
     <input type="text" class="form-control" id="tEmail" name= "tEmail" placeholder="usuario@gmail.com">
     </div>
     <div class="mb-3">
+    <label for="lSenha" class="form-label">Senha</label>
+    <input type="text" class="form-control" id="tSenha" name= "tSenha" placeholder="Coloque sua senha com letras, números e caracteres">
+    </div>
+    <div class="mb-3">
         <label for="lEndereco" class="form-label">Endereço</label>
         <input type="text" class="form-control" id="tEndereco" name="tEndereco" placeholder="Avenida Senador Vergueiro, 400">
     </div>
@@ -51,7 +54,7 @@
         <input type="text" class="form-control" id="tGenero" name="tGenero" placeholder="Homem ou Mulher">
     </div>
  
-    <button type="submit">Cadastrar
+    <button type="submit">Cadastrar<br>
         <?php
             $conexao = new Conexao();//conectar no banco
 
@@ -61,14 +64,16 @@
                 $dtaNascimento = $_POST['tDtaNascimento'];
                 $telefone = $_POST['tTelefone'];
                 $email = $_POST['tEmail'];
+                $senha = $_POST['tSenha'];
                 $endereco = $_POST['tEndereco'];
                 $genero = $_POST['tGenero'];
             //Instaciar
             $inserir = new Inserir();
-            echo $inserir->cadastrarCliente($conexao,$cpf,$nome,$dtaNascimento,$telefone,$email,$endereco,$genero);
+            echo $inserir->cadastrarCliente($conexao,$cpf,$nome,$dtaNascimento,$telefone,$email,$senha,$endereco,$genero);
          }
         ?>
     </button>
+    <button><a href="Index.php">Voltar</a></button>
     </form>
 </body>
 </html>

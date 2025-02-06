@@ -11,6 +11,7 @@
                                         string $dtaNascimento,
                                         string $telefone,
                                         string $email,
+                                        string $senha,
                                         string $endereco,
                                         string $genero
          ){

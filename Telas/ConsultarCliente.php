@@ -16,7 +16,6 @@
     <title>Consultar Cliente</title>
 </head>
 <body>
-    <a href="Menu.php"> <button>Voltar</button></a> 
     <form method="POST">
         <label>Informe um CPF: </label>
         <input type = "text" name="tCpf"/>
@@ -34,8 +33,9 @@
         if(isset($_POST['tCpf'])){
         echo $consultar->consultarClienteIndividual($conexao,$cpf);
         }else{
-            echo "Preencha o campo CPF";
+            echo "";
         }
     ?>
-</body>
+</body><br><br>
+<a href="Index.php"> <button>Voltar</button></a> 
 </html>

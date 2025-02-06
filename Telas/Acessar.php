@@ -2,8 +2,10 @@
     namespace PHP\Modelo\Tela;
     require_once('..\DAO\Login.php');
     require_once('..\DAO\Conexao.php');
+    require_once('..\DAO\Consultar.php');
     use PHP\Modelo\DAO\Conexao;
     use PHP\Modelo\DAO\Login;
+    use PHP\Modelo\DAO\Consultar;
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -100,7 +102,7 @@
 <header>
         <img src="../RGN Arena/champions.jpeg" alt="Estadio">
         <nav>
-            <a href="Index.php" class="button-cor">Voltar</a>
+        <a href="CadastrarCliente.php" class="button-cor">Cadastre-se</a> <a href="Index.php" class="button-cor">Voltar</a>
         </nav>
     </header>
     <section class="hero">
@@ -108,20 +110,20 @@
         <h2>Login</h2>
         <form  method="POST">
             <input type="text" name="tCpf" placeholder="Digite seu CPF" required>
-            <a href="CadastrarCliente.php">Cadastre-se</a>
+            <input type="text" name="tSenha" placeholder="Digite sua senha" required>
             <button type="submit" class = "cor-button">Entrar
                 <?php
-                if(isset($_POST['tCpf'])){
-                    $conexao = new Conexao();    
-                    $login = new Login();
-                    if($login->loginPessoa($conexao,$_POST['tCpf']) == true)
-                    {
-                       
-                    }else{
-                        echo "Não Entrei";
-                    }
- 
-                }  
+                $conexao = new Conexao();  
+                $consultar = new Consultar();
+                $cCpf = $consultar->consultarCPF($conexao,$_POST['tCpf']);
+                $cSenha = $consultar->consultarSenha($conexao,$_POST['tSenha']);
+                if($cCpf == true and $cSenha == true){
+                   header('location:Index.html');
+                }else{
+                    echo "Senha e/ou CPF inválidos!";
+                }
+                
+              
             ?>
             </button>
         </form>

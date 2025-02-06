@@ -66,8 +66,10 @@
     <header>
         <img src="../RGN Arena/champions.jpeg" alt="Estadio">
         <nav>
-            <a href="ajuda.html" class="">Ajuda</a>
             <a href="Acessar.php" class="button-cor">Login</a>
+            <a href="ConsultarCliente.php" class="button-cor">Consultar Dados</a>
+            <a href="AtualizarCliente.php" class="button-cor">Atualizar Dados</a>
+            <a href="ExcluirCliente.php" class="button-cor">Excluir Cadastro</a>
         </nav>
     </header>
 

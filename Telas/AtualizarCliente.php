@@ -16,51 +16,56 @@
     <title>Atualizar Cliente</title>
 </head>
 <body>
-    <a href="Menu.php"> <button>Voltar</button></a>
     <form method="POST">
         <label>Informe um CPF: </label>
         <input type = "text" name="tCpf"/><br><br>
 
         <div class="mb-3">
-            <label for="lTipo" class="form-label">Selecione 1- Funcionario:</label>
-            <select class="form-select" id="tTipo" name="tTipo" required>
-                <option value="1">1 - Cliente</option>
-            </select>
-        </div> 
-
+            
         <label>Informe sua atualização: </label>
-        <select name="tCampo">
-            <option value="tipo">Tipo</option>
+        <select type="submit" name="tCampo">
+            <option value="tipo">Selecione</option>
             <option value="nome">Nome</option>
-            <option value="dtaNascimento">Data de Nascimento</option>
             <option value="telefone">Telefone</option>
             <option value="email">Email</option>
             <option value="endereco">Endereço</option>
             <option value="genero">Genero</option>
         </select><br><br>
 
-        <label>Novo Dado: </label>
-        <input type = "text" name="tNovoDado"/><br><br>
+        <label>Informe o tipo: </label>
+        <select name="tTipo">
+            <option value="">Selecione</option>
+            <option value="1">Cliente</option>
+            <option value="2">Funcionário</option>
+        </select><br><br>
 
-        <button type="submit">Atualizar
+        <label>Novo Dado: </label>
+        <input type ='text' name='tNovoDado'/><br><br>
+        <button type="submit">Atualizar<br>
+        
             <?php
                 $conexao = new Conexao();
                 if(isset($_POST['tCpf']) && isset($_POST['tTipo'])){
-                $atualizar = new Atualizar();
+                
                     $cpf =$_POST['tCpf'];
                     $tipo = $_POST['tTipo'];
                     $campo =$_POST['tCampo'];
                     $novoDado =$_POST['tNovoDado'];
+                    
                 }  
             ?>
           </button>
     </form>
+    <button><a href="Index.php">Voltar</a></button>
     <?php
         if(isset($_POST['tCpf'])){
-            echo $atualizar->atualizarFuncionario($conexao,$campo,$novoDado,$cpf,$tipo);
+            $atualizar = new Atualizar();
+            echo $atualizar->atualizarCadastro($conexao,$campo,$novoDado,$cpf,$tipo);
+           
         }else{
-            echo "Preencha os campos vazios!";
+            echo "";
         }
+
     ?>
 </body>
 </html>
