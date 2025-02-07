@@ -111,25 +111,28 @@
         <form  method="POST">
             <input type="text" name="tCpf" placeholder="Digite seu CPF" required>
             <input type="text" name="tSenha" placeholder="Digite sua senha" required>
-            <button type="submit" class = "cor-button">Entrar
+            <button type="submit" class = "cor-button">Entrar</button><br>
                 <?php
-                $conexao = new Conexao();  
-                $consultar = new Consultar();
-                $cCpf = $consultar->consultarCPF($conexao,$_POST['tCpf']);
-                $cSenha = $consultar->consultarSenha($conexao,$_POST['tSenha']);
-                if($cCpf == true and $cSenha == true){
-                   header('location:Index.html');
-                }else{
-                    echo "Senha e/ou CPF inválidos!";
+                $msg = "";
+                if(isset($_POST['tCpf'])){
+                    $msg = "falso";
+                    $conexao = new Conexao();  
+                    $consultar = new Consultar();
+                    $acessar   = new Login();
+                    $cCpf = $consultar->consultarCPF($conexao, $_POST['tCpf']);
+                    $cSenha = $consultar->consultarSenha($conexao, $_POST['tSenha']);
+                    if($cCpf == true and $cSenha == true){
+                        header('location:index.php');
+                    }else{
+                        $msg = "verdadeiro";
+                    }
                 }
-                
-              
             ?>
-            </button>
+            <?php if($msg == "verdadeiro"){ echo "E-mail e/ou senha inválidos!"; } ?>
         </form>
     <?php
         if(isset($_POST['tCpf'])){
-            echo $acessar->loginPessoa($conexao,$cpf);
+            echo $acessar->loginPessoa($conexao,$cCpf);
         }else{
             return "Preencha os campos vazios!";
         }

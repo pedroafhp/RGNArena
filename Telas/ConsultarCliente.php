@@ -24,7 +24,7 @@
                 $conexao = new Conexao();
                 if(isset($_POST['tCpf'])){
                     $cpf = $_POST['tCpf'];
-                $consultar = new Consultar();
+                    $consultar = new Consultar();
                 }  
             ?>
         </button>

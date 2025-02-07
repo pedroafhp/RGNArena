@@ -17,7 +17,7 @@
          ){
             try{
                 $conn = $conexao->conectar();//Abrir banco
-                $sql = "Insert into cliente(codigo,nome, dtaNascimento, telefone, email, endereco, genero) values('$cpf','$nome','$dtaNascimento','$telefone','$email','$endereco','$genero')";
+                $sql = "Insert into cliente(codigo, nome, dtaNascimento, telefone, email, senha, endereco, genero) values('$cpf','$nome','$dtaNascimento','$telefone','$email','$senha','$endereco','$genero')";
                 $result = mysqli_query($conn,$sql);
                 mysqli_close($conn);
                 //Verificar o resultado

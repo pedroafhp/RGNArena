@@ -7,7 +7,7 @@ class Login {
     public function loginPessoa(Conexao $conexao, string $cpf) {
         try {
             $conn = $conexao->conectar();
-            $sql  = "select codigo, tipo from Cliente where codigo = '$cpf'";
+            $sql  = "select codigo from Cliente where codigo = '$cpf'";
             $result = mysqli_query($conn,$sql);
             while($dados = mysqli_fetch_Array($result))
             {

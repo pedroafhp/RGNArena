@@ -52,11 +52,11 @@ use PHP\Modelo\DAO\Conexao;
        {
             try{
                 $conn = $conexao->conectar();
-                $sql  = "select * from Cliente where codigo = '$senha'";
+                $sql  = "select * from Cliente where senha = '$senha'";
                 $result = mysqli_query($conn,$sql);
                 while($dados = mysqli_fetch_Array($result))
                 {
-                    if($dados['codigo'] == $senha){
+                    if($dados['senha'] == $senha){
                         return true;
                     }
                 }
